@@ -1,0 +1,76 @@
+from polymorphims_lists import Conta , ContaCorrente , ContaPoupanca , ContaSalario
+
+
+#Testing Class Conta
+#new_conta = Conta(88)
+
+#print(new_conta)
+
+
+#Testing Class ContaCorrente
+
+conta16 = ContaCorrente(16)
+conta16.deposita(1000)
+conta16.passa_o_mes()
+print(conta16)
+
+
+#Testing Class ContaPoupanca
+
+conta17 = ContaPoupanca(17)
+conta17.deposita(1000)
+conta17.passa_o_mes()
+print(conta17)
+
+
+#Testing List of Accounts
+
+conta16 = ContaCorrente(16)
+conta16.deposita(1000)
+conta17 = ContaPoupanca(17)
+conta17.deposita(1000)
+contas = [conta16,conta17]
+
+for conta in contas:
+  conta.passa_o_mes() #duck typing nao importa se eh ContaCorrente ou ContaPoupanca se ele faz quack responde como um pato ok entao posso pedir para fazer duck se responde ao passa o mes ok
+  print(conta)
+
+
+
+conta1 = ContaSalario(37)
+print(conta1)
+
+conta2 = ContaSalario(37)
+print(conta2)
+
+#conta1 isnot like conta2 because they would be the same only if they were pointing to the same object not only if their values are the same
+#conta1 and conta2 are referencing 2 different objects they are 2 different objects in memory per coincidence they have the same values inside 
+
+# print(conta1 == conta2) False
+
+#This another example that proves conta1 is not like conta2
+
+# contas = [conta1]
+
+# print(conta1 in contas) #True
+
+# print(conta2 in contas) #False
+
+#We used our __eq__ method to define equality and now comparing contas 1 and 2  print(conta1 == conta2)
+#it returns True because our equality method does that althought they are 2 different objects in memory
+
+conta1.deposita(10)
+
+#if I deposit 10 in conta1 conta1 and conta2 are no longer the same because the saldo is not the same
+
+#print(conta1 == conta2) #returns False
+
+conta1 = ContaSalario(37)
+conta2 = ContaCorrente(37)
+
+print(conta1 == conta2)
+
+
+print(isinstance(ContaCorrente(34),ContaCorrente)) #To check if it's an instance of a specific type
+
+print(isinstance(ContaCorrente(34),Conta))
