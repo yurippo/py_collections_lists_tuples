@@ -1,4 +1,5 @@
 from polymorphims_lists import Conta , ContaCorrente , ContaPoupanca , ContaSalario
+from _operator import attrgetter
 
 
 #Testing Class Conta
@@ -74,3 +75,41 @@ print(conta1 == conta2)
 print(isinstance(ContaCorrente(34),ContaCorrente)) #To check if it's an instance of a specific type
 
 print(isinstance(ContaCorrente(34),Conta))
+
+conta_do_guilherme = ContaSalario(17)
+conta_do_guilherme.deposita(500)
+
+conta_da_daniela = ContaSalario(3)
+conta_da_daniela.deposita(1000)
+
+conta_do_paulo = ContaSalario(133)
+conta_do_paulo.deposita(510)
+
+lista_contas =[conta_do_guilherme, conta_da_daniela, conta_do_paulo]
+
+for conta in lista_contas:
+  print(conta)
+  
+# sorted(lista_contas)
+# throw an error 
+# TypeError: '<' not supported between instances of 'ContaSalario' and 'ContaSalario'
+
+#Way to fix the error
+#using a function
+# def extrai_saldo(conta):
+#   return conta._saldo
+
+#using a function to reduce the object in something comparable
+def extrai_saldo(conta):
+ return conta._saldo
+
+lista_key = sorted(lista_contas,key= extrai_saldo)
+print(lista_key)
+
+for conta in sorted(lista_contas, key=extrai_saldo):
+  print(conta)
+  
+#another way is importing attrgetter from operator to get the parameter
+
+for conta in sorted(lista_contas,key=attrgetter("_saldo")):
+  print(conta)
