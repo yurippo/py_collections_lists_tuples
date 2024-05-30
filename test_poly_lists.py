@@ -100,16 +100,55 @@ for conta in lista_contas:
 #   return conta._saldo
 
 #using a function to reduce the object in something comparable
-def extrai_saldo(conta):
- return conta._saldo
+# def extrai_saldo(conta):
+#  return conta._saldo
 
-lista_key = sorted(lista_contas,key= extrai_saldo)
-print(lista_key)
+# lista_key = sorted(lista_contas,key= extrai_saldo)
+# print(lista_key)
 
-for conta in sorted(lista_contas, key=extrai_saldo):
-  print(conta)
+# for conta in sorted(lista_contas, key=extrai_saldo):
+#   print(conta)
   
-#another way is importing attrgetter from operator to get the parameter
+# #another way is importing attrgetter from operator to get the parameter
 
-for conta in sorted(lista_contas,key=attrgetter("_saldo")):
+# for conta in sorted(lista_contas,key=attrgetter("_saldo")):
+#   print(conta)
+
+# print(conta_do_guilherme > conta_da_daniela)
+
+conta_do_guilhermet = ContaSalario(20)
+conta_do_guilhermet.deposita(300)
+
+conta_da_danielat = ContaSalario(15)
+conta_da_danielat.deposita(200)
+
+print(conta_do_guilhermet)
+
+print(conta_da_danielat)
+
+print(conta_do_guilhermet > conta_da_danielat)
+print(conta_do_guilhermet < conta_da_danielat)
+
+for conta in sorted(lista_contas):
   print(conta)
+
+
+for conta in sorted(lista_contas, reverse=True):
+  print(conta)
+
+
+conta_do_guilhermen = ContaSalario(17)
+conta_do_guilhermen.deposita(500)
+
+conta_da_danielan = ContaSalario(3)
+conta_da_danielan.deposita(1000)
+
+conta_do_paulon = ContaSalario(133)
+conta_do_paulon.deposita(500)
+
+lista_contasn =[conta_do_guilhermen, conta_da_danielan, conta_do_paulon]
+
+for conta in sorted(lista_contasn):
+  print(conta)
+
+print(conta_do_guilhermen == conta_da_danielan)

@@ -21,3 +21,5 @@ saldo_list =  [1000, 2000, 3000, 4000]
 # Fazer tupla de listas;
 # Diferença entre programação orientada a objetos e funcional;
 # Fazer lista de tuplas.
+
+#0,694589
